@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const api = {
     key: "bf0ed48128caaaf532992799b3c5c107",
-    base: "http://api.openweathermap.org/data/2.5/"
+    base: "https://api.openweathermap.org/data/2.5/"
   }
 
 export const getStateSlice = createSlice({
