@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-export const Location = ({weather}) => {
+export const Location = () => {
+
+    const {weather} = useSelector( state => state.getState )
 
     const dataBuilder = (d) => {
         let months = ['January','February','March','April','May','June','July','August','September','October','November','December']

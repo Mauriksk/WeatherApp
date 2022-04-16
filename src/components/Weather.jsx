@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-export const Weather = ({weather}) => {
+export const Weather = () => {
+
+  const {weather} = useSelector( state => state.getState )
   return (<>
     {
       (typeof weather.main != "undefined")? 

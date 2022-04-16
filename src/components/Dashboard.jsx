@@ -1,8 +1,16 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchGetEstadoDelTiempo, queryValue } from '../store/slices/getState';
+
 import { Location } from './Location'
 import { Weather } from './Weather'
 
-export const Dashboard = ({search, query, weather, setQuery}) => {
+export const Dashboard = () => {
+  
+  const dispatchQuery = useDispatch()
+  const dispatchSearch = useDispatch()
+  const {query} = useSelector( state => state.getState )
+
   return (
     <main>
         <div className='search-box'>
@@ -11,12 +19,12 @@ export const Dashboard = ({search, query, weather, setQuery}) => {
                 className='search-bar'
                 placeholder='Search'
                 value={query}
-                onChange={e => setQuery(e.target.value)}
-                onKeyPress={search}
+                onChange={e => dispatchQuery(queryValue(e.target.value))}
+                onKeyPress={e => dispatchSearch(fetchGetEstadoDelTiempo(e,query))}
             />
         </div>
-        <Location weather={weather}/>
-        <Weather weather={weather}/>
+        <Location />
+        <Weather />
     </main>
   )
 }
